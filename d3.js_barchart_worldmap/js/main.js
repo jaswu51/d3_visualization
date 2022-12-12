@@ -120,7 +120,7 @@ const createMap = (data) =>  {
   svg.append("g")
   .attr("transform", "translate(" + (width/2 - 600) + "," + 20 + ")")
   .append("text")
-  .text("Countries whose Electricity Consumptions are within range +/- 20% of Bitcoin in 2021")
+  .text("Countries whose Electricity Consumption is within range +/- 20% of Bitcoin in 2021")
   .attr("class", "title")
 
   svg.append("g")

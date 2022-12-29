@@ -22,8 +22,8 @@ const pieData = d3.pie()
 const arc = d3.arc().innerRadius(0).outerRadius(outRadius);
 const arc1 = d3.arc().innerRadius(0).outerRadius(outRadius1);
 const color = d3.scaleOrdinal(d3.schemeCategory10);
-const color1 = d3.scaleLinear().domain([1,10])
-.range(["white", "blue"]);
+const color1 = d3.scaleLinear().domain([1,3])
+.range(["green", "yellow"]);
 
 
 

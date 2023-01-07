@@ -26,7 +26,7 @@ const label=d3.arc().innerRadius(outRadius-40).outerRadius(outRadius-40);
 const color1 = d3.scaleOrdinal(d3.schemeCategory10);
 const color2 = d3.scaleLinear().domain([1,3]).range(["green", "yellow"]);
 
-const g1=svg.append("g").attr("id", "g1").attr("transform", "translate("+width/2+","+height/2+")").selectAll().data(pieData).enter();
+var g1=svg.append("g").attr("id", "g1").attr("transform", "translate("+width/2+","+height/2+")").selectAll().data(pieData).enter();
 g1.append("path")
   .attr("d",arc1)
   .attr("fill", (d, i) => color1(i))
@@ -39,7 +39,10 @@ g1.append("text")
     .attr('text-anchor', 'middle')
     .text(function(d,i) {return data[i].name; });
 
-
+d3.select("#g1")
+.transition()
+    .duration(2000)
+    .attr("transform", 500);
 
     const g2=svg.append("g").attr("id", "g2").attr("transform", "translate("+width/5+","+height/5+")").call(
       d3.drag()

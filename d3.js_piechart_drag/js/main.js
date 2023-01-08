@@ -141,18 +141,18 @@ var  g_bitcoin=svg.append("g")
 .sort((a, b) => a.Energy_Source - b.Energy_Source)(data2020_bitcoin)).enter();
 
 g_bitcoin.append("path")
-.attr("d",d3.arc().innerRadius(0).outerRadius(function(d) {return data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/2); }))
+.attr("d",d3.arc().innerRadius(0).outerRadius(function(d) {return data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/1.5); }))
 .attr("fill", function(d, i) {
 return colorArray[i%3] // here it is picking up colors in sequence
 }
 )
 ;
 
-outRadius_Bitcoin=data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/2)[0];
+outRadius_Bitcoin=data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/1.5)[0];
 g_bitcoin.append("text")
 .text("Bitcoin")
 .attr("x", 0)             
-.attr("y", function(d) {return -data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/2)-5; })
+.attr("y", function(d) {return -data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/1.5)-5; })
 .attr('text-anchor', 'middle')
 .style("font-size","16px");
 
@@ -203,7 +203,7 @@ g_bitcoin.append("text")
         const a=bitcoin_x-event.x;
         const b=bitcoin_y-event.y;
         var distance=Math.sqrt( a*a + b*b );
-        outRadius_Bitcoin=data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/2)[0];
+        outRadius_Bitcoin=data.filter(d => d.Year == "2020" & d.Country == "Bitcoin" & d.Energy_Source=='total').map(d => d.Consumption_TWh/1.5)[0];
         if (this.id!="bitcoinPie"){
         if (distance<outRadius_Bitcoin*2 ){
           d3.select(this).attr("transform", "translate("+d3.select("#bitcoinPie").attr("transform").match(/(?<=\()\d{1,}(?=\,)/)+","+d3.select("#bitcoinPie").attr("transform").match(/\d{1,}(?=\))/)+")");
